@@ -68,6 +68,6 @@ def filter_file(path):
         else:
             print(f'{GUI.error()} You entered a number not from the list ')
 
-def time(path):
-    text = read_color(path)
-    text =
+# def time(path):
+#    text = read_color(path)
+#    text =
