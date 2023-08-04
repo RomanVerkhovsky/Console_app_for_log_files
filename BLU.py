@@ -31,6 +31,9 @@ def check_log(path):
 
 def add(text):
     path = control.open_log()
-    text_2 = BLL.read(path)
-    text = text + '\n' + text_2
-    return text
+    if path != 'stop':
+        text_2 = BLL.read(path)
+        text = text + '\n' + text_2
+        return text
+    else:
+        return 'stop'

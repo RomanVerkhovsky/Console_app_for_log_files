@@ -15,12 +15,12 @@ def read_log(text):
     text = read_color(text)
     text = text.replace('\n', '\n\t\t\t')
     GUI.info_event()
-    print(f'\n'
-          f'\t\t\t{text}'
-          f'\n')
+    print('')
+    print(f'\t\t\t{text}')
+    print('')
 
-def find_word(path):
-    text = read_color(path)
+def find_word(text):
+    text = read_color(text)
     word = GUI.input_word()
     if text.find(word) != -1:
         print('')
@@ -35,8 +35,8 @@ def find_word(path):
     else:
         print(f'{GUI.info()} log file do not contain this word')
 
-def filter_file(path):
-    text = read_color(path)
+def filter_file(text):
+    text = read_color(text)
     text = text.split('\n')
     while True:
         filter = GUI.filter_choice()

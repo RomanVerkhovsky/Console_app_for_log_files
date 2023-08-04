@@ -89,18 +89,6 @@ def command_list():
           f'\n\t\t\tadd      - add info from next log file'
           f'\n\t\t\t')
 
-def command_find():
-    print(f'{info()} Available commands:'
-          f'\n\t\t\t'
-          f'\n\t\t\tread     - view file'
-          f'\n\t\t\tfilter   - change importance level to view it'
-          f'\n\t\t\tfind     - input word or letter to view event with it'
-          f'\n\t\t\tsort     - sort date up or down'
-          f'\n\t\t\tstop     - close app'
-          f'\n\t\t\tchange   - change log file'
-          f'\n\t\t\tinfo     - list of available commands'
-          f'\n\t\t\t')
-
 # _____________________________________________________________________________________________
 
 # input user >>>>>>>>>>>>>

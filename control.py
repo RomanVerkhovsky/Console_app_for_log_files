@@ -3,8 +3,8 @@ import BLU
 import BLL
 
 def parsing_file(path):
-    GUI.command_list()
     text = BLL.read(path)
+    GUI.command_list()
     while True:
         command = GUI.input_command()
         if command == 'stop':
@@ -15,6 +15,9 @@ def parsing_file(path):
             GUI.command_list()
         elif command == 'add':
             text = BLU.add(text)
+            if text == 'stop':
+                command = 'stop'
+                return command
         else:
             BLU.check_command(command, text)
 
@@ -25,23 +28,11 @@ def open_log():
             if BLU.check_log(log_name):
                 return log_name
             else:
-                log_name = 'change'
                 GUI.avoid_log()
-                return log_name
         elif log_name == 'stop':
             return log_name
         else:
             GUI.notfound()
-#        elif non_exist(log_name) == 'stop':
-#            return log_name
-
-#def non_exist(name):
-#    GUI.find_error()
-#    while True:
-#        command = GUI.input_path()
-
-
-
 
 def run():
     while True:
