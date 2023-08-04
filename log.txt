@@ -1,0 +1,9 @@
+01.01.2023 12:23 [ERROR] display driver not found
+06.01.2023 05:45 [INFO] microsoft word install
+07.02.2023 15:55 [WARNING] the battery is low
+09.02.2023 15:23 [INFO] the Desktop Window Manager has registered the session port
+09.02.2023 21:46 [INFO] The system resumed operation after sleep mode
+15.03.2023 18:57 [WARNING] An avoidable hardware error has occurred
+07.04.2023 11:23 [ERROR] The system rebooted, shutting down with errors
+27.05.2023 10:45 [INFO] Windows Update has started downloading the update
+08.06.2023 11:08 [WARNING] An avoidable hardware error has occurred
