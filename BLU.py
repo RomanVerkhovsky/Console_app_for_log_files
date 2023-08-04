@@ -1,6 +1,7 @@
 import os
 import BLL
 import GUI
+import control
 
 
 def check_exist(name):
@@ -9,13 +10,13 @@ def check_exist(name):
     else:
         return False
 
-def check_command(command, path):
+def check_command(command, text):
     if command == 'read':
-        BLL.read_log(path)
+        BLL.read_log(text)
     elif command == 'filter':
-        BLL.filter_file(path)
+        BLL.filter_file(text)
     elif command == 'find':
-        BLL.find_word(path)
+        BLL.find_word(text)
     else:
         GUI.notcommand()
 
@@ -27,3 +28,9 @@ def check_log(path):
         return True
     else:
         return False
+
+def add(text):
+    path = control.open_log()
+    text_2 = BLL.read(path)
+    text = text + '\n' + text_2
+    return text

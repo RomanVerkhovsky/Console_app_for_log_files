@@ -72,8 +72,9 @@ def notfound():
 
 def notcommand():
     print(f'{error()} {fat_text("WRONG COMMAND")}')
-def info_event(path):
-    print(f'{info()} The event(s) from {aqua(path)}:')
+
+def info_event():
+    print(f'{info()} The event(s) from selected log file(s):')
 
 def command_list():
     print(f'{info()} Available commands:'
@@ -85,6 +86,7 @@ def command_list():
           f'\n\t\t\tstop     - close app'
           f'\n\t\t\tchange   - change log file'
           f'\n\t\t\tinfo     - list of available commands'
+          f'\n\t\t\tadd      - add info from next log file'
           f'\n\t\t\t')
 
 def command_find():

@@ -1,8 +1,10 @@
 import GUI
 import BLU
+import BLL
 
 def parsing_file(path):
     GUI.command_list()
+    text = BLL.read(path)
     while True:
         command = GUI.input_command()
         if command == 'stop':
@@ -11,8 +13,10 @@ def parsing_file(path):
             break
         elif command == 'info':
             GUI.command_list()
+        elif command == 'add':
+            text = BLU.add(text)
         else:
-            BLU.check_command(command, path)
+            BLU.check_command(command, text)
 
 def open_log():
     while True:
@@ -35,6 +39,9 @@ def open_log():
 #    GUI.find_error()
 #    while True:
 #        command = GUI.input_path()
+
+
+
 
 def run():
     while True:

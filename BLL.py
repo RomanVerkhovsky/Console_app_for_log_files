@@ -7,15 +7,14 @@ def read(path):
     file.close()
     return text
 
-def read_color(path):
-    text = read(path)
+def read_color(text):
     text = GUI.color_text(text)
     return text
 
-def read_log(path):
-    text = read_color(path)
+def read_log(text):
+    text = read_color(text)
     text = text.replace('\n', '\n\t\t\t')
-    GUI.info_event(path)
+    GUI.info_event()
     print(f'\n'
           f'\t\t\t{text}'
           f'\n')
