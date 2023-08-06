@@ -68,7 +68,7 @@ def avoid_log():
     print(f'{error()} {fat_text("Log file is avoid")}')
 
 def notfound():
-    print(f'{error()} File not found')
+    print(f'{error()} {fat_text("File not found")}')
 
 def notcommand():
     print(f'{error()} {fat_text("WRONG COMMAND")}')

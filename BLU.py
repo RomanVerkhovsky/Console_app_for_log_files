@@ -17,6 +17,8 @@ def check_command(command, text):
         BLL.filter_file(text)
     elif command == 'find':
         BLL.find_word(text)
+    elif command == 'sort':
+        BLL.sort_time(text)
     else:
         GUI.notcommand()
 
