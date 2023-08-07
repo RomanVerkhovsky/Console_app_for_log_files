@@ -15,7 +15,7 @@ def parsing_file(path):
         elif command == 'info':
             GUI.command_list()
         elif command == 'add':
-            text = BLL.sort_time_up(BLU.add(text))
+            text = BLU.add(text)
             if text == 'stop':
                 command = 'stop'
                 return command

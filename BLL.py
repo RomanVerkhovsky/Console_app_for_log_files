@@ -78,7 +78,7 @@ def sort_index_up(date: list):
     sort_index = []
     max_num = date[0]
     max_index = 0
-    for k in range(len(date)):
+    for k in range(len(date) - 1):
         for i in range(len(date)):
             if date[i] not in lst_max:
                 max_num = date[i]
@@ -90,6 +90,9 @@ def sort_index_up(date: list):
                 max_index = i
         lst_max.append(max_num)
         sort_index.append(max_index)
+    for i in range(len(date)):
+        if i not in sort_index:
+            sort_index.append(i)
     return sort_index
 
 
@@ -98,7 +101,7 @@ def sort_index_down(date: list):
     sort_index = []
     min_num = date[0]
     min_index = 0
-    for k in range(len(date)):
+    for k in range(len(date) - 1):
         for i in range(len(date)):
             if date[i] not in lst_min:
                 min_num = date[i]
@@ -110,6 +113,9 @@ def sort_index_down(date: list):
                 min_index = i
         lst_min.append(min_num)
         sort_index.append(min_index)
+    for i in range(len(date)):
+        if i not in sort_index:
+            sort_index.append(i)
     return sort_index
 
 
