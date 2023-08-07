@@ -10,6 +10,7 @@ def check_exist(name):
     else:
         return False
 
+
 def check_command(command, text):
     if command == 'read':
         BLL.read_log(text)
@@ -18,7 +19,8 @@ def check_command(command, text):
     elif command == 'find':
         BLL.find_word(text)
     else:
-        GUI.notcommand()
+        GUI.not_command()
+
 
 def check_log(path):
     file = open(path, 'r')
@@ -28,6 +30,7 @@ def check_log(path):
         return True
     else:
         return False
+
 
 def add(origin_text):
     path = control.open_log()

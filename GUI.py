@@ -7,33 +7,43 @@ fat = '\033[1m'
 # _________________________________________________________________________________________
 
 # colors          >>>>>>>>>>>>>>>>
+
+
 def reset_color():
     return reset
+
 
 def aqua(text):
     text = f'{color_aqua}{text}{reset}'
     return text
 
+
 def yellow(text):
     text = f'{color_yellow}{text}{reset}'
     return text
+
+
 def red(text):
     text = f'{color_red}{text}{reset}'
     return text
+
 
 def blue(text):
     text = f'{color_blue}{text}{reset}'
     return text
 
+
 def fat_text(text):
     text = f'{fat}{text}{reset}'
     return text
+
 
 def color_text(text):
     text = text.replace("ERROR", f'{fat_text(red("ERROR"))}')
     text = text.replace('INFO', f'{fat_text(aqua("INFO"))}')
     text = text.replace('WARNING', f'{fat_text(yellow("WARNING"))}')
     return text
+
 
 def yellow_word(text, word):
     text = text.replace(word, f'{yellow(word)}')
@@ -42,39 +52,52 @@ def yellow_word(text, word):
 # _________________________________________________________________________________________
 
 # info           >>>>>>>>>>>>>>>>>
+
+
 def you():
     return f'{blue("    YOU:")}'
+
 
 def info():
     return f'{aqua("   INFO:")}'
 
+
 def error():
     return f'{red("  ERROR:")}'
+
 
 def warning():
     return f'{yellow("WARNING:")}'
 
+
 def starting_message():
     print(f'{info()} The program is starting...')
+
 
 def ending():
     print(f'{info()} The program was stopped')
     input("\t\t  Press enter for exit")
 
+
 def find_error():
     print(f'{error()} Log file not found, choose new file or input "stop" for exit')
+
 
 def avoid_log():
     print(f'{error()} {fat_text("Log file is avoid")}')
 
+
 def notfound():
     print(f'{error()} {fat_text("File not found")}')
 
-def notcommand():
+
+def not_command():
     print(f'{error()} {fat_text("WRONG COMMAND")}')
+
 
 def info_event():
     print(f'{info()} The event(s) from selected log file(s):')
+
 
 def command_list():
     print(f'{info()} Available commands:'
@@ -92,17 +115,22 @@ def command_list():
 # _____________________________________________________________________________________________
 
 # input user >>>>>>>>>>>>>
+
+
 def input_path():
     path = input(f'{you()} Input path to log file or "stop" for exit >> ')
     return path
+
 
 def input_command():
     com = input(f'{you()} Input command >> ')
     return com
 
+
 def input_word():
     word = input(f'{you()} Input word >> ')
     return word
+
 
 def filter_choice():
     print(f'{info()} Choose importance level:')
@@ -110,5 +138,5 @@ def filter_choice():
           f'\n\t\t\t{warning()} 2'
           f'\n\t\t\t{info()} 3'
           f'\n')
-    filter = input(f'{you()} Input number >> ')
-    return filter
+    choice = input(f'{you()} Input number >> ')
+    return choice

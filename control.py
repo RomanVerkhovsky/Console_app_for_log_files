@@ -2,25 +2,30 @@ import GUI
 import BLU
 import BLL
 
+
 def parsing_file(path):
-    origin_text = BLL.read(path)
-    text = BLL.sort_time(origin_text)
+    text = BLL.read(path)
     GUI.command_list()
     while True:
         command = GUI.input_command()
         if command == 'stop':
             return command
         elif command == 'change':
-            break
+            return command
         elif command == 'info':
             GUI.command_list()
         elif command == 'add':
-            origin_text = BLU.add(origin_text)
+            text = BLL.sort_time_up(BLU.add(text))
             if text == 'stop':
                 command = 'stop'
                 return command
+        elif command == 'up':
+            text = BLL.sort_time_up(text)
+        elif command == 'down':
+            text = BLL.sort_time_down(text)
         else:
             BLU.check_command(command, text)
+
 
 def open_log():
     while True:
@@ -34,6 +39,7 @@ def open_log():
             return log_name
         else:
             GUI.notfound()
+
 
 def run():
     while True:
