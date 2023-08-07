@@ -17,8 +17,6 @@ def check_command(command, text):
         BLL.filter_file(text)
     elif command == 'find':
         BLL.find_word(text)
-    elif command == 'sort':
-        BLL.sort_time(text)
     else:
         GUI.notcommand()
 
@@ -31,11 +29,11 @@ def check_log(path):
     else:
         return False
 
-def add(text):
+def add(origin_text):
     path = control.open_log()
     if path != 'stop':
         text_2 = BLL.read(path)
-        text = text + '\n' + text_2
-        return text
+        origin_text = origin_text + '\n' + text_2
+        return origin_text
     else:
         return 'stop'

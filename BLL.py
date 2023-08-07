@@ -18,7 +18,7 @@ def sort_down(date: list):
                 max_index = i
         lst_max.append(max_num)
         sort_index.append(max_index)
-    return lst_max
+    return sort_index
 
 def read(path):
     file = open(path, 'r')
@@ -88,35 +88,41 @@ def filter_file(text):
 
 
 def sort_time(text):
-    text = read_color(text)
-    text = text.replace('\n', '\n\t\t\t')
     text = text.split('\n')
     for i in range(len(text)):
         text[i] = text[i].split(' ')
-    time = []
-    for i in range(len(text)):
-        time.append([])
-        for j in range(2):
-            time[i].append(text[i][j])
-    print('')
-    print('\t\t\t', end='')
-    for i in range(len(time)):
-        for j in range(len(time[i])):
-            print(time[i][j], end=' ')
-        print('')
-    print('')
 
     date = []
-    for i in range(len(time)):
-        date.append(time[i][0])
+    for i in range(len(text)):
+        date.append(text[i][0])
 
-    for i in range(len(date)):
+    for i in range(len(text)):
         date[i] = date[i].replace('.', ' ')
-        date[i] = date[i].replace('\t\t\t', '')
         date[i] = date[i].split(' ')
         date[i] = date[i][::-1]
         date[i] = ''.join(date[i])
-        date[i] = int(date[i])
 
-    print(date)
-    print(sort_down(date))
+    time = []
+    for i in range(len(text)):
+        time.append(text[i][1])
+
+    for i in range(len(text)):
+        time[i] = time[i].replace(':', '')
+
+    date_time = []
+    for i in range(len(date)):
+        number = date[i] + time[i]
+        number = int(number)
+        date_time.append(number)
+
+    for i in range(len(text)):
+        text[i] = ' '.join(text[i])
+
+    text_sorted = []
+    for i in range(len(sort_down(date_time))):
+        for j in range(len(text)):
+            if j == sort_down(date_time)[i]:
+                text_sorted.append(text[j])
+
+    text = '\n'.join(text_sorted)
+    return text

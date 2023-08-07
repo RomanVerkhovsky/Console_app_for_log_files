@@ -3,7 +3,8 @@ import BLU
 import BLL
 
 def parsing_file(path):
-    text = BLL.read(path)
+    origin_text = BLL.read(path)
+    text = BLL.sort_time(origin_text)
     GUI.command_list()
     while True:
         command = GUI.input_command()
@@ -14,7 +15,7 @@ def parsing_file(path):
         elif command == 'info':
             GUI.command_list()
         elif command == 'add':
-            text = BLU.add(text)
+            origin_text = BLU.add(origin_text)
             if text == 'stop':
                 command = 'stop'
                 return command
