@@ -5,6 +5,8 @@ import BLL
 
 def parsing_file(path):
     text = BLL.read(path)
+    collection = []
+    collection = GUI.collection_paths(collection, path)
     GUI.command_list()
     while True:
         command = GUI.input_command()
@@ -15,16 +17,29 @@ def parsing_file(path):
         elif command == 'info':
             GUI.command_list()
         elif command == 'add':
-            text = BLU.add(text)
-            if text == 'stop':
-                command = 'stop'
-                return command
+            while True:
+                path = open_log()
+                if path in collection:
+                    GUI.error_add(path)
+                elif path == 'stop':
+                    command = 'stop'
+                    return command
+                elif path == 'cancel':
+                    break
+                else:
+                    text = BLU.add(text, path)
+                    collection = GUI.collection_paths(collection, path)
+                    GUI.info_add(path)
+                    break
         elif command == 'up':
             text = BLL.sort_time_up(text)
+            GUI.text_up()
         elif command == 'down':
             text = BLL.sort_time_down(text)
+            GUI.text_down()
         else:
-            BLU.check_command(command, text)
+            if not BLU.check_command(command, text, collection):
+                GUI.not_command()
 
 
 def open_log():
@@ -36,6 +51,8 @@ def open_log():
             else:
                 GUI.avoid_log()
         elif log_name == 'stop':
+            return log_name
+        elif log_name == 'cancel':
             return log_name
         else:
             GUI.notfound()

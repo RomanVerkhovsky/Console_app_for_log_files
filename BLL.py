@@ -13,10 +13,10 @@ def read_color(text):
     return text
 
 
-def read_log(text):
+def read_log(text, collection):
     text = read_color(text)
     text = text.replace('\n', '\n\t\t\t')
-    GUI.info_event()
+    GUI.info_event(collection)
     print('')
     print(f'\t\t\t{text}')
     print('')

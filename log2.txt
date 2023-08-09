@@ -1,9 +1,9 @@
-01.01.2023 12:23 [ERROR] display driver not found
-06.01.2023 05:45 [INFO] microsoft word install
-07.02.2023 15:55 [WARNING] the battery is low
-09.02.2023 15:23 [INFO] the Desktop Window Manager has registered the session port
-09.02.2023 21:46 [INFO]
-15.03.2023 18:57 [WARNING]
-07.04.2023 11:23 [ERROR]
-27.05.2023 10:45 [INFO]
-08.06.2023 11:08 [WARNING]
+01.01.2023 12:23 [USER] [ERROR] display driver not found
+06.01.2023 05:45 [USER] [INFO] microsoft word install
+07.02.2023 15:55 [USER] [WARNING] the battery is low
+09.02.2023 15:23 [USER] [INFO] the Desktop Window Manager has registered the session port
+09.02.2023 21:46 [USER] [INFO]
+15.03.2023 18:57 [USER] [WARNING]
+07.04.2023 11:23 [USER] [ERROR]
+27.05.2023 10:45 [USER] [INFO]
+08.06.2023 11:08 [USER] [WARNING]

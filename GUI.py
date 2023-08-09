@@ -4,6 +4,7 @@ color_yellow = '\033[33m'
 color_aqua = '\033[36m'
 reset = '\033[0m'
 fat = '\033[1m'
+ital = '\033[3m'
 # _________________________________________________________________________________________
 
 # colors          >>>>>>>>>>>>>>>>
@@ -35,6 +36,11 @@ def blue(text):
 
 def fat_text(text):
     text = f'{fat}{text}{reset}'
+    return text
+
+
+def ital_text(text):
+    text = f'{ital}{text}{reset}'
     return text
 
 
@@ -95,23 +101,47 @@ def not_command():
     print(f'{error()} {fat_text("WRONG COMMAND")}')
 
 
-def info_event():
-    print(f'{info()} The event(s) from selected log file(s):')
+def info_event(collection):
+    collection = ', '.join(collection)
+    print(f'{info()} The event(s) from: {yellow(collection)}')
+
+
+def text_up():
+    print(f'{info()} information sort date up')
+
+
+def text_down():
+    print(f'{info()} information sort date down')
+
+
+def info_add(path):
+    print(f'{info()} {fat_text("The information from ")}{yellow(path)}{fat_text(" was successfully added")}')
 
 
 def command_list():
     print(f'{info()} Available commands:'
           f'\n\t\t\t'
-          f'\n\t\t\tread     - view file'
-          f'\n\t\t\tfilter   - change importance level to view it'
-          f'\n\t\t\tfind     - input word or letter to view event with it'
-          f'\n\t\t\tstop     - close app'
-          f'\n\t\t\tchange   - change log file'
-          f'\n\t\t\tinfo     - list of available commands'
-          f'\n\t\t\tadd      - add info from next log file'
-          f'\n\t\t\tup       - sort date up'
-          f'\n\t\t\tdown     - sort date down'
+          f'\n\t\t\t{fat_text(ital_text("read"))}     - view file'
+          f'\n\t\t\t{fat_text(ital_text("filter"))}   - change importance level to view it'
+          f'\n\t\t\t{fat_text(ital_text("find"))}     - input word or letter to view event with it'
+          f'\n\t\t\t{fat_text(ital_text("stop"))}     - close app'
+          f'\n\t\t\t{fat_text(ital_text("change"))}   - change log file'
+          f'\n\t\t\t{fat_text(ital_text("info"))}     - list of available commands'
+          f'\n\t\t\t{fat_text(ital_text("add"))}      - add info from next log file'
+          f'\n\t\t\t{fat_text(ital_text("up"))}       - sort date up'
+          f'\n\t\t\t{fat_text(ital_text("down"))}     - sort date down'
           f'\n\t\t\t')
+
+
+def collection_paths(collection: list, path):
+    collection.append(path)
+    return collection
+
+
+def error_add(path):
+    print(f'{error()} {yellow(path)} {fat_text("has already been added. Choose another file.")}\n'
+          f'         Enter {fat_text(ital_text("cancel"))} for cancel, {fat_text(ital_text("stop"))}'
+          f' for exit the program')
 
 # _____________________________________________________________________________________________
 
