@@ -65,7 +65,7 @@ def you():
 
 
 def info():
-    return f'{aqua("   INFO:")}'
+    return f'{fat_text(aqua("   INFO:"))}'
 
 
 def error():
@@ -82,7 +82,7 @@ def starting_message():
 
 def ending():
     print(f'{info()} The program was stopped')
-    input("\t\t  Press enter for exit")
+    input(f"{you()} Press enter for exit >> ")
 
 
 def find_error():
@@ -107,11 +107,11 @@ def info_event(collection):
 
 
 def text_up():
-    print(f'{info()} information sort date up')
+    print(f'{info()} {fat_text("information sort date up")}')
 
 
 def text_down():
-    print(f'{info()} information sort date down')
+    print(f'{info()} {fat_text("information sort date down")}')
 
 
 def info_add(path):
@@ -149,8 +149,20 @@ def error_add(path):
 
 
 def input_path():
-    path = input(f'{you()} Input path to log file or "stop" for exit >> ')
+    path = input(f'{you()} Input path to log file >> ')
     return path
+
+
+def info_path_add():
+    print(f'{info()} Choose log file. Filters will be reset.\n'
+          f'         Or enter {fat_text(ital_text("stop"))} for exit the program.\n'
+          f'         Enter {fat_text(ital_text("cancel"))} for cancel the addition.')
+    return
+
+
+def info_path():
+    print(f'         Choose log file. Or enter {fat_text(ital_text("stop"))} for exit the program.')
+    return
 
 
 def input_command():

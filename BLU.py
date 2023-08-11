@@ -15,9 +15,6 @@ def check_command(command, text, collection):
     if command == 'read':
         BLL.read_log(text, collection)
         return True
-    elif command == 'filter':
-        BLL.filter_file(text)
-        return True
     elif command == 'find':
         BLL.find_word(text)
         return True
@@ -35,7 +32,7 @@ def check_log(path):
         return False
 
 
-def add(origin_text, path):
+def add(original_text, path):
     text_2 = BLL.read(path)
-    origin_text = origin_text + '\n' + text_2
-    return origin_text
+    original_text = original_text + '\n' + text_2
+    return original_text

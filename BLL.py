@@ -13,6 +13,7 @@ def read_color(text):
     return text
 
 
+# reading log file
 def read_log(text, collection):
     text = read_color(text)
     text = text.replace('\n', '\n\t\t\t')
@@ -22,6 +23,7 @@ def read_log(text, collection):
     print('')
 
 
+# search entered information in log file
 def find_word(text):
     text = read_color(text)
     word = GUI.input_word()
@@ -39,6 +41,7 @@ def find_word(text):
         print(f'{GUI.info()} log file do not contain this word')
 
 
+# change importance level to view it
 def filter_file(text):
     text = read_color(text)
     text = text.split('\n')
@@ -46,12 +49,17 @@ def filter_file(text):
     while True:
         choice = GUI.filter_choice()
         if choice == '1':
+            new_text = ''
+            for i in range(len(text)):
+                if text[i].find('ERROR') != -1:
+                    new_text += text[i] + '\n'
             print('')
             for i in range(len(text)):
                 if text[i].find('ERROR') != -1:
                     print(f'\t\t\t {text[i]}')
             print('')
-            return
+            text = new_text[:-1]
+            return text
 
         elif choice == '2':
             print('')
@@ -119,6 +127,7 @@ def sort_index_down(date: list):
     return sort_index
 
 
+# sort date up
 def sort_time_up(text):
     text = text.split('\n')
     for i in range(len(text)):
@@ -160,6 +169,7 @@ def sort_time_up(text):
     return text
 
 
+# sort date down
 def sort_time_down(text):
     text = text.split('\n')
     for i in range(len(text)):

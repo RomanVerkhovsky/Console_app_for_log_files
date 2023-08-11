@@ -4,7 +4,8 @@ import BLL
 
 
 def parsing_file(path):
-    text = BLL.read(path)
+    original_text = BLL.read(path)
+    text = original_text
     collection = []
     collection = GUI.collection_paths(collection, path)
     GUI.command_list()
@@ -12,12 +13,17 @@ def parsing_file(path):
         command = GUI.input_command()
         if command == 'stop':
             return command
+        elif command == 'reset':
+            text = original_text
         elif command == 'change':
             return command
         elif command == 'info':
             GUI.command_list()
+        elif command == 'filter':
+            text = BLL.filter_file(text)
         elif command == 'add':
             while True:
+                GUI.info_path_add()
                 path = open_log()
                 if path in collection:
                     GUI.error_add(path)
@@ -27,7 +33,8 @@ def parsing_file(path):
                 elif path == 'cancel':
                     break
                 else:
-                    text = BLU.add(text, path)
+                    original_text = BLU.add(original_text, path)
+                    text = original_text
                     collection = GUI.collection_paths(collection, path)
                     GUI.info_add(path)
                     break
@@ -60,9 +67,11 @@ def open_log():
 
 def run():
     while True:
+        GUI.info_path()
         path = open_log()
         if path == 'stop':
             return
         elif path != 'change':
+            GUI.info_add(path)
             if parsing_file(path) == 'stop':
                 return

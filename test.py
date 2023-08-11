@@ -103,3 +103,11 @@ print('')
         for j in range(len(text)):
             if j == sort_down(date_time)[i]:
                 print(f'\t\t\t{text[j]}')
+
+
+def blue(text):
+    text = f'{color_blue}{text}{reset}'
+    return text
+
+def you():
+    return f'{blue("    YOU:")}'
