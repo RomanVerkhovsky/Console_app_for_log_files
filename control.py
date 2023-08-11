@@ -13,18 +13,28 @@ def parsing_file(path):
         command = GUI.input_command()
         if command == 'stop':
             return command
-        elif command == 'reset':
-            text = original_text
         elif command == 'change':
             return command
+        elif command == 'reset':
+            text = original_text
         elif command == 'info':
             GUI.command_list()
+        elif command == 'up':
+            text = BLU.sort_time_up(text)
+            GUI.text_up()
+        elif command == 'down':
+            text = BLU.sort_time_down(text)
+            GUI.text_down()
         elif command == 'filter':
-            text = BLL.filter_file(text)
+            text = BLU.filter_file(text)
+        elif command == 'read':
+            BLU.read_log(text, collection)
+        elif command == 'find':
+            BLU.find_word(text)
         elif command == 'add':
             while True:
                 GUI.info_path_add()
-                path = open_log()
+                path = BLU.open_log()
                 if path in collection:
                     GUI.error_add(path)
                 elif path == 'stop':
@@ -38,37 +48,14 @@ def parsing_file(path):
                     collection = GUI.collection_paths(collection, path)
                     GUI.info_add(path)
                     break
-        elif command == 'up':
-            text = BLL.sort_time_up(text)
-            GUI.text_up()
-        elif command == 'down':
-            text = BLL.sort_time_down(text)
-            GUI.text_down()
         else:
-            if not BLU.check_command(command, text, collection):
-                GUI.not_command()
-
-
-def open_log():
-    while True:
-        log_name = GUI.input_path()
-        if BLU.check_exist(log_name):
-            if BLU.check_log(log_name):
-                return log_name
-            else:
-                GUI.avoid_log()
-        elif log_name == 'stop':
-            return log_name
-        elif log_name == 'cancel':
-            return log_name
-        else:
-            GUI.notfound()
+            GUI.not_command()
 
 
 def run():
     while True:
         GUI.info_path()
-        path = open_log()
+        path = BLU.open_log()
         if path == 'stop':
             return
         elif path != 'change':
