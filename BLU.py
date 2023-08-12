@@ -141,20 +141,30 @@ def filter_file(text):
             return text
 
         elif choice == '2':
+            new_text = ''
+            for i in range(len(text)):
+                if text[i].find('WARNING') != -1:
+                    new_text += text[i] + '\n'
             print('')
             for i in range(len(text)):
                 if text[i].find('WARNING') != -1:
                     print(f'\t\t\t {text[i]}')
             print('')
-            return
+            text = new_text[:-1]
+            return text
 
         elif choice == '3':
+            new_text = ''
+            for i in range(len(text)):
+                if text[i].find('INFO') != -1:
+                    new_text += text[i] + '\n'
             print('')
             for i in range(len(text)):
                 if text[i].find('INFO') != -1:
                     print(f'\t\t\t {text[i]}')
             print('')
-            return
+            text = new_text[:-1]
+            return text
 
         else:
             print(f'{GUI.error()} You entered a number not from the list ')

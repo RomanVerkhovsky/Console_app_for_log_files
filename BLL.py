@@ -35,6 +35,12 @@ def read_color(text):
     return text
 
 
+# adding path in collection of paths
+def collection_paths(collection: list, path):
+    collection.append(path)
+    return collection
+
+
 # analysis of numerical data and output of a list of indexes in ascending order
 def sort_index_up(date: list):
     lst_max = []

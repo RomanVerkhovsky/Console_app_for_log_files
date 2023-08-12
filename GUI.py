@@ -101,9 +101,11 @@ def not_command():
     print(f'{error()} {fat_text("WRONG COMMAND")}')
 
 
-def info_event(collection):
+def info_event(collection: list):
+    for i in range(len(collection)):
+        collection[i] = yellow(collection[i])
     collection = ', '.join(collection)
-    print(f'{info()} The event(s) from: {yellow(collection)}')
+    print(f'{info()} The event(s) from: {collection}')
 
 
 def text_up():
@@ -133,15 +135,14 @@ def command_list():
           f'\n\t\t\t')
 
 
-def collection_paths(collection: list, path):
-    collection.append(path)
-    return collection
-
-
 def error_add(path):
     print(f'{error()} {yellow(path)} {fat_text("has already been added. Choose another file.")}\n'
           f'         Enter {fat_text(ital_text("cancel"))} for cancel, {fat_text(ital_text("stop"))}'
           f' for exit the program')
+
+
+def info_cancel():
+    print(f'{info()} {fat_text("Adding information canceled")}')
 
 # _____________________________________________________________________________________________
 
