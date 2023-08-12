@@ -102,10 +102,11 @@ def not_command():
 
 
 def info_event(collection: list):
+    lst = []
     for i in range(len(collection)):
-        collection[i] = yellow(collection[i])
-    collection = ', '.join(collection)
-    print(f'{info()} The event(s) from: {collection}')
+        lst.append(yellow(collection[i]))
+    lst = ', '.join(lst)
+    return print(f'{info()} The event(s) from: {lst}')
 
 
 def text_up():

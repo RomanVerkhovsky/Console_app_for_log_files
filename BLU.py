@@ -20,7 +20,7 @@ def open_log():
 
 
 # reading log file
-def read_log(text, collection):
+def read_log(text, collection: list):
     text = BLL.read_color(text)
     text = text.replace('\n', '\n\t\t\t')
     GUI.info_event(collection)
@@ -174,7 +174,7 @@ def filter_file(text):
 def find_word(text):
     text = BLL.read_color(text)
     word = GUI.input_word()
-    if text.find(word) != -1:
+    if text.find(word) != -1 and word != '':
         print('')
         text = text.split('\n')
         text_new = []
