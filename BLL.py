@@ -105,4 +105,3 @@ def del_collection(collection: list, log):
         if i != log:
             new_collection.append(i)
     return new_collection
-

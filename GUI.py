@@ -177,7 +177,11 @@ def del_cancel():
 
 
 def info_filter():
-    print(f'{info()} filters was reset')
+    print(f'{info()} {fat_text("Filters was reset")}')
+
+
+def info_avoid_word():
+    print(f'{error()} You do not entered information!')
 # _____________________________________________________________________________________________
 
 # input user >>>>>>>>>>>>>
@@ -206,7 +210,7 @@ def input_command():
 
 
 def input_word():
-    word = input(f'{you()} Input word >> ')
+    word = input(f'{you()} Input word or letter to view event with it >> ')
     return word
 
 
@@ -228,3 +232,8 @@ def input_name():
 def yes_no():
     answer = input(f'{you()} Enter {fat_text(ital_text("y"))} for exit, {fat_text(ital_text("n"))} for cancel >> ')
     return answer
+
+
+def find_question():
+    question = input(f'{you()} Do you want to enter a new word to search for (n for exit/another key continue) >> ')
+    return question

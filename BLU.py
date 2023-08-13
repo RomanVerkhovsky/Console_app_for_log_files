@@ -171,10 +171,9 @@ def filter_file(text):
 
 
 # search entered information in log file
-def find_word(text):
+def find_word(text, word):
     text = BLL.read_color(text)
-    word = GUI.input_word()
-    if text.find(word) != -1 and word != '':
+    if text.find(word) != -1:
         print('')
         text = text.split('\n')
         text_new = []
@@ -183,7 +182,6 @@ def find_word(text):
                 print(f'\t\t\t {GUI.yellow_word(text[i], word)}')
                 text_new.append(text[i])
         print('')
-
     else:
         print(f'{GUI.info()} log file do not contain this word')
 

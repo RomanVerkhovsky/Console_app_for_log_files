@@ -48,7 +48,18 @@ def parsing_file(path):
         elif command == 'read':
             BLU.read_log(text, collection)
         elif command == 'find':
-            BLU.find_word(text)
+            while True:
+                word = GUI.input_word()
+                if word != '':
+                    BLU.find_word(text, word)
+                    answer = GUI.find_question()
+                    if answer == 'n':
+                        break
+                    else:
+                        continue
+                else:
+                    GUI.info_avoid_word()
+
         elif command == 'add':
             GUI.info_path_add()
             while True:
