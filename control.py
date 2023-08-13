@@ -13,12 +13,18 @@ def parsing_file(path):
     while True:
         command = GUI.input_command()
         if command == 'stop':
-            return command
+            while True:
+                answer = GUI.yes_no()
+                if answer == 'y' and answer != '':
+                    return command
+                elif answer == 'n' and answer != '':
+                    break
         elif command == 'change':
             return command
         elif command == 'reset':
             text = original_text
             info_sort = 'def'
+            GUI.info_filter()
         elif command == 'info':
             GUI.command_list()
         elif command == 'up':
@@ -61,6 +67,28 @@ def parsing_file(path):
                     collection = BLL.collection_paths(collection, path)
                     GUI.info_add(path)
                     break
+        elif command == 'del':
+            if len(collection) > 1:
+                while True:
+                    GUI.choose_log()
+                    GUI.view_collection(collection)
+                    log = GUI.input_name()
+                    if log != 'cancel':
+                        if log in collection:
+                            original_text = BLU.del_log(collection, log)
+                            text = original_text
+                            collection = BLL.del_collection(collection, log)
+                            info_sort = 'def'
+                            GUI.del_successful()
+                            break
+                        else:
+                            GUI.not_log(log)
+                    elif log == 'cancel':
+                        GUI.del_cancel()
+                        break
+            else:
+                GUI.not_del()
+
         else:
             GUI.not_command()
 
@@ -70,7 +98,12 @@ def run():
         GUI.info_path()
         path = BLU.open_log()
         if path == 'stop':
-            return
+            while True:
+                answer = GUI.yes_no()
+                if answer == 'y' and answer != '':
+                    return
+                elif answer == 'n' and answer != '':
+                    break
         elif path != 'change':
             GUI.info_add(path)
             if parsing_file(path) == 'stop':

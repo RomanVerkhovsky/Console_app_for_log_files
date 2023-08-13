@@ -87,3 +87,22 @@ def sort_index_down(date: list):
         if i not in sort_index:
             sort_index.append(i)
     return sort_index
+
+
+def avoid_str(text):
+    text = text.split('\n')
+    text_new = []
+    for i in text:
+        if i != '':
+            text_new.append(i)
+    text_new = '\n'.join(text_new)
+    return text_new
+
+
+def del_collection(collection: list, log):
+    new_collection = []
+    for i in collection:
+        if i != log:
+            new_collection.append(i)
+    return new_collection
+

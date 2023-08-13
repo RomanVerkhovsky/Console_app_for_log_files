@@ -186,3 +186,12 @@ def find_word(text):
 
     else:
         print(f'{GUI.info()} log file do not contain this word')
+
+
+def del_log(collection: list, log):
+    original_text = ''
+    for i in collection:
+        if i != log:
+            original_text = add(original_text, i)
+    original_text = BLL.avoid_str(original_text)
+    return original_text

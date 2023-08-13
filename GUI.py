@@ -133,6 +133,8 @@ def command_list():
           f'\n\t\t\t{fat_text(ital_text("add"))}      - add info from next log file'
           f'\n\t\t\t{fat_text(ital_text("up"))}       - sort date up'
           f'\n\t\t\t{fat_text(ital_text("down"))}     - sort date down'
+          f'\n\t\t\t{fat_text(ital_text("del"))}      - delete information from log file'
+          f'\n\t\t\t{fat_text(ital_text("reset"))}    - reset filters'
           f'\n\t\t\t')
 
 
@@ -145,6 +147,37 @@ def error_add(path):
 def info_cancel():
     print(f'{info()} {fat_text("Adding information canceled")}')
 
+
+def not_del():
+    change = 'change'
+    print(f'{error()} {fat_text(f"Only one file has been added")}\n'
+          f'         {fat_text(f"To change the file, use command: {ital_text(change)}")}')
+
+
+def view_collection(collection: list):
+    for i in collection:
+        print(f'         {yellow(i)}')
+
+
+def choose_log():
+    print(f'{info()} Choose log file to delete (filters will be reset) or {fat_text(ital_text("cancel"))} '
+          f'to cancel deleting:')
+
+
+def not_log(log):
+    print(f'{error()} {yellow(log)} not found in collection')
+
+
+def del_successful():
+    print(f'{info()} {fat_text("Deletion was successful")}')
+
+
+def del_cancel():
+    print(f'{info()} Deletion canceled')
+
+
+def info_filter():
+    print(f'{info()} filters was reset')
 # _____________________________________________________________________________________________
 
 # input user >>>>>>>>>>>>>
@@ -185,3 +218,13 @@ def filter_choice():
           f'\n')
     choice = input(f'{you()} Input number >> ')
     return choice
+
+
+def input_name():
+    name = input(f'{you()} >> ')
+    return name
+
+
+def yes_no():
+    answer = input(f'{you()} Enter {fat_text(ital_text("y"))} for exit, {fat_text(ital_text("n"))} for cancel >> ')
+    return answer
