@@ -81,24 +81,24 @@ def starting_message():
 
 
 def ending():
-    print(f'{info()} The program was stopped')
-    input(f"{you()} Press enter for exit >> ")
+    print(f'{info()} The program was stopped!')
+    input(f"{you()} Press enter for exit... >> ")
 
 
 def find_error():
-    print(f'{error()} Log file not found, choose new file or input "stop" for exit')
+    print(f'{error()} Log file not found! Choose new file or input {blue(ital_text("stop"))} for exit')
 
 
 def avoid_log():
-    print(f'{error()} {fat_text("Log file is avoid")}')
+    print(f'{error()} {fat_text("Log file is avoid!")}')
 
 
 def notfound():
-    print(f'{error()} {fat_text("File not found")}')
+    print(f'{error()} {fat_text("File not found!")}')
 
 
 def not_command():
-    print(f'{error()} {fat_text("WRONG COMMAND")}')
+    print(f'{error()} {fat_text("WRONG COMMAND!")}')
 
 
 def info_event(collection: list):
@@ -110,48 +110,48 @@ def info_event(collection: list):
 
 
 def text_up():
-    print(f'{info()} {fat_text("information sort date up")}')
+    print(f'{info()} {fat_text("information sort date up.")}')
 
 
 def text_down():
-    print(f'{info()} {fat_text("information sort date down")}')
+    print(f'{info()} {fat_text("information sort date down.")}')
 
 
 def info_add(path):
-    print(f'{info()} {fat_text("The information from ")}{yellow(path)}{fat_text(" was successfully added")}')
+    print(f'{info()} {fat_text("The information from ")}{yellow(path)}{fat_text(" was successfully added!")}')
 
 
 def command_list():
     print(f'{info()} Available commands:'
           f'\n\t\t\t'
-          f'\n\t\t\t{fat_text(ital_text("read"))}     - view file'
-          f'\n\t\t\t{fat_text(ital_text("filter"))}   - change importance level to view it'
-          f'\n\t\t\t{fat_text(ital_text("find"))}     - input word or letter to view event with it'
-          f'\n\t\t\t{fat_text(ital_text("stop"))}     - close app'
-          f'\n\t\t\t{fat_text(ital_text("change"))}   - change log file'
-          f'\n\t\t\t{fat_text(ital_text("info"))}     - list of available commands'
-          f'\n\t\t\t{fat_text(ital_text("add"))}      - add info from next log file'
-          f'\n\t\t\t{fat_text(ital_text("up"))}       - sort date up'
-          f'\n\t\t\t{fat_text(ital_text("down"))}     - sort date down'
-          f'\n\t\t\t{fat_text(ital_text("del"))}      - delete information from log file'
-          f'\n\t\t\t{fat_text(ital_text("reset"))}    - reset filters'
+          f'\n\t\t\t{blue(ital_text("read"))}     - view file'
+          f'\n\t\t\t{blue(ital_text("filter"))}   - change importance level to view it'
+          f'\n\t\t\t{blue(ital_text("find"))}     - input word or letter to view event with it'
+          f'\n\t\t\t{blue(ital_text("stop"))}     - close app'
+          f'\n\t\t\t{blue(ital_text("change"))}   - change log file'
+          f'\n\t\t\t{blue(ital_text("info"))}     - list of available commands'
+          f'\n\t\t\t{blue(ital_text("add"))}      - add info from next log file'
+          f'\n\t\t\t{blue(ital_text("up"))}       - sort date up'
+          f'\n\t\t\t{blue(ital_text("down"))}     - sort date down'
+          f'\n\t\t\t{blue(ital_text("del"))}      - delete information from log file'
+          f'\n\t\t\t{blue(ital_text("reset"))}    - reset filters'
           f'\n\t\t\t')
 
 
 def error_add(path):
-    print(f'{error()} {yellow(path)} {fat_text("has already been added. Choose another file.")}\n'
-          f'         Enter {fat_text(ital_text("cancel"))} for cancel, {fat_text(ital_text("stop"))}'
-          f' for exit the program')
+    print(f'{error()} {yellow(path)} {fat_text("has already been added! Choose another file.")}\n'
+          f'         Enter {blue(ital_text("cancel"))} for cancel, {blue(ital_text("stop"))}'
+          f' for exit the program.')
 
 
 def info_cancel():
-    print(f'{info()} {fat_text("Adding information canceled")}')
+    print(f'{info()} {fat_text("Adding information canceled.")}')
 
 
 def not_del():
     change = 'change'
-    print(f'{error()} {fat_text(f"Only one file has been added")}\n'
-          f'         {fat_text(f"To change the file, use command: {ital_text(change)}")}')
+    print(f'{error()} {fat_text(f"Only one file has been added!")}\n'
+          f'         {fat_text(f"To change the file, use command: {blue(change)}")}')
 
 
 def view_collection(collection: list):
@@ -160,24 +160,24 @@ def view_collection(collection: list):
 
 
 def choose_log():
-    print(f'{info()} Choose log file to delete (filters will be reset) or {fat_text(ital_text("cancel"))} '
+    print(f'{info()} Choose log file to delete (filters will be reset) or {blue(ital_text("cancel"))} '
           f'to cancel deleting:')
 
 
 def not_log(log):
-    print(f'{error()} {yellow(log)} not found in collection')
+    print(f'{error()} {yellow(log)} not found in collection!')
 
 
 def del_successful():
-    print(f'{info()} {fat_text("Deletion was successful")}')
+    print(f'{info()} {fat_text("Deletion was successful.")}')
 
 
 def del_cancel():
-    print(f'{info()} Deletion canceled')
+    print(f'{info()} Deletion canceled.')
 
 
 def info_filter():
-    print(f'{info()} {fat_text("Filters was reset")}')
+    print(f'{info()} {fat_text("Filters was reset.")}')
 
 
 def info_avoid_word():
@@ -194,13 +194,13 @@ def input_path():
 
 def info_path_add():
     print(f'{info()} Choose log file. Filters will be reset.\n'
-          f'         Or enter {fat_text(ital_text("stop"))} for exit the program.\n'
-          f'         Enter {fat_text(ital_text("cancel"))} for cancel the addition.')
+          f'         Or enter {blue(ital_text("stop"))} for exit the program.\n'
+          f'         Enter {blue(ital_text("cancel"))} for cancel the addition.')
     return
 
 
 def info_path():
-    print(f'         Choose log file. Or enter {fat_text(ital_text("stop"))} for exit the program.')
+    print(f'         Choose log file. Or enter {blue(ital_text("stop"))} for exit the program.')
     return
 
 
@@ -230,10 +230,11 @@ def input_name():
 
 
 def yes_no():
-    answer = input(f'{you()} Enter {fat_text(ital_text("y"))} for exit, {fat_text(ital_text("n"))} for cancel >> ')
+    answer = input(f'{you()} Enter {blue(ital_text("y"))} for exit, {blue(ital_text("n"))} for cancel >> ')
     return answer
 
 
 def find_question():
-    question = input(f'{you()} Do you want to enter a new word to search for (n for exit/another key continue) >> ')
+    question = input(f'{you()} Do you want to enter a new word to search for? ({blue(ital_text("n"))} for exit'
+                     f'/another key continue) >> ')
     return question

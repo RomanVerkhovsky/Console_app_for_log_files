@@ -59,7 +59,6 @@ def parsing_file(path):
                         continue
                 else:
                     GUI.info_avoid_word()
-
         elif command == 'add':
             GUI.info_path_add()
             while True:
@@ -68,7 +67,12 @@ def parsing_file(path):
                     GUI.error_add(path)
                 elif path == 'stop':
                     command = 'stop'
-                    return command
+                    while True:
+                        answer = GUI.yes_no()
+                        if answer == 'y' and answer != '':
+                            return command
+                        elif answer == 'n' and answer != '':
+                            break
                 elif path == 'cancel':
                     GUI.info_cancel()
                     break
@@ -115,7 +119,7 @@ def run():
                     return
                 elif answer == 'n' and answer != '':
                     break
-        elif path != 'change':
+        else:
             GUI.info_add(path)
             if parsing_file(path) == 'stop':
                 return
