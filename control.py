@@ -119,6 +119,8 @@ def run():
                     return
                 elif answer == 'n' and answer != '':
                     break
+        elif path == "cancel":
+            pass
         else:
             GUI.info_add(path)
             if parsing_file(path) == 'stop':
